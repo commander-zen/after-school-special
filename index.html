@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>After School Special TCG — Holmen, WI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Graduate&family=Special+Elite&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #8b0000;
+    --red-mid: #a50000;
+    --red-bg: #fff5f5;
+    --red-border: rgba(139,0,0,0.15);
+    --white: #ffffff;
+    --off-white: #faf9f8;
+    --ink: #111111;
+    --ink-2: #2d2d2d;
+    --muted: #6e6e6e;
+    --border: #e4e4e4;
+    --surface: #f6f6f6;
+    --touch: 52px;
+    --nav-h: 62px;
+    --r: 10px;
+    --r-lg: 14px;
+    --r-pill: 999px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--white);
+    max-width: 430px;
+    margin: 0 auto;
+    padding-bottom: 32px;
+    overflow-x: hidden;
+  }
+
+  /* ── TOP NAV ── */
+  .top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    height: var(--nav-h);
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    padding: 0 18px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+
+  .logo-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid rgba(255,255,255,0.35);
+    flex-shrink: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .logo-primary {
+    font-family: 'Graduate', serif;
+    font-size: 13px;
+    color: var(--white);
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+  }
+
+  .logo-secondary {
+    font-size: 10px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--red);
+    padding: 32px 22px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      -55deg,
+      transparent 0px,
+      transparent 18px,
+      rgba(255,255,255,0.025) 18px,
+      rgba(255,255,255,0.025) 19px
+    );
+    pointer-events: none;
+  }
+
+  .hero-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: var(--r-pill);
+    padding: 5px 13px 5px 9px;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 24px;
+    letter-spacing: 0.01em;
+  }
+
+  .pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    flex-shrink: 0;
+    animation: blink 2.2s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* Hero wordmark image replacing the h1 text */
+  .hero-wordmark {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 28px;
+    margin-inline: auto;
+    filter: drop-shadow(0 2px 12px rgba(0,0,0,0.3));
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.72);
+    max-width: 290px;
+    margin-bottom: 30px;
+    line-height: 1.55;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: var(--touch);
+    padding: 0 22px;
+    background: var(--white);
+    color: var(--red);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: var(--r-pill);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .btn-white:active { opacity: 0.9; transform: scale(0.98); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--touch);
+    padding: 0 20px;
+    background: transparent;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: var(--r-pill);
+    border: 1.5px solid rgba(255,255,255,0.38);
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .btn-ghost:active { background: rgba(255,255,255,0.1); }
+
+  /* ── INFO STRIP ── */
+  .info-strip {
+    background: var(--off-white);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: stretch;
+  }
+
+  .info-cell {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 6px;
+    gap: 2px;
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    border-right: 1px solid var(--border);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .info-cell:last-child { border-right: none; }
+  .info-cell strong { font-size: 13px; color: var(--ink); font-weight: 700; display: block; }
+
+  .open-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #15803d;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    padding: 28px 20px;
+  }
+
+  .section + .section {
+    border-top: 1px solid var(--border);
+  }
+
+  .section-hdr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+
+  /* Special Elite for section headers */
+  .section-title {
+    font-family: 'Special Elite', serif;
+    font-size: 22px;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #f0f0f0;
+      --ink-2: #d0d0d0;
+      --muted: #999;
+      --border: #2e2e2e;
+      --surface: #1a1a1a;
+      --off-white: #161616;
+      --red-bg: #1e0000;
+      --red-border: rgba(180,0,0,0.25);
+    }
+    body { background: #111; color: #f0f0f0; }
+
+    .section-title { color: #f0f0f0; }
+    .loc-name { color: #f0f0f0; }
+    .action-title { color: #f0f0f0; }
+    .c-label { color: #f0f0f0; }
+    .shop-link-title { color: #f0f0f0; }
+    .game-sub { color: #999; }
+    .about-text { color: #ccc; }
+    .stat-lbl { color: #999; }
+    .h-day { color: #999; }
+    .h-time { color: #ddd; }
+    .hours-row.today .h-time { color: #ff6b6b; }
+    .info-cell { color: #999; }
+    .info-cell strong { color: #f0f0f0; }
+    .footer-copy { color: rgba(255,255,255,0.25); }
+
+    .game-tile { background: #1a1a1a; border-color: #2e2e2e; }
+    .game-tile:active { background: #1e0000; border-color: var(--red); }
+    .action-row { background: #1a1a1a; border-color: #2e2e2e; }
+    .action-row:active { background: #1e0000; }
+    .shop-link-card { background: #1a1a1a; border-color: #2e2e2e; }
+    .shop-link-card:active { background: #1e0000; }
+    .contact-item { background: #1a1a1a; border-color: #2e2e2e; }
+    .contact-item:active { background: #1e0000; }
+    .loc-card { background: #1a1a1a; border-color: #2e2e2e; }
+    .stat-box { background: #1a1a1a; }
+    .about-inner { background: #1e0000; border-color: rgba(180,0,0,0.25); }
+    .map-block::before { background: #2a2520; }
+    .map-label { background: #1a1a1a; border-color: #2e2e2e; color: #ff6b6b; }
+    .hours-note { background: #1a1500; border-color: #5a4500; color: #fbbf24; }
+    .hours-note a { color: #fbbf24; }
+    .info-strip { background: #161616; border-color: #2e2e2e; }
+    .info-cell { border-color: #2e2e2e; }
+    .action-arrow { color: #444; }
+  }
+
+  .link-sm {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--red);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  /* ── GAMES GRID — real product logos ── */
+  .games-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .game-tile {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 14px 12px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    min-height: 90px;
+    justify-content: center;
+  }
+
+  .game-tile:active {
+    border-color: var(--red);
+    background: var(--red-bg);
+  }
+
+  /* Logo images inside each tile */
+  .game-logo {
+    width: 100%;
+    max-height: 44px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .game-sub {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  /* ── TCGPLAYER LINK ── */
+  .shop-link-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 16px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .shop-link-card:active { border-color: var(--red); background: var(--red-bg); }
+
+  .tcg-logo-wrap {
+    width: 54px;
+    height: 54px;
+    background: #1a1a1a;
+    border-radius: var(--r);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    padding: 8px;
+  }
+
+  .tcg-logo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .shop-link-text { flex: 1; }
+
+  .shop-link-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 2px;
+  }
+
+  .shop-link-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .shop-link-desc {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ── ACTION LIST ── */
+  .action-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .action-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: var(--touch);
+    padding: 14px 16px;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r-lg);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .action-row:active { border-color: var(--red); background: var(--red-bg); }
+
+  .action-ico {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--r);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .action-body { flex: 1; }
+
+  .action-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .action-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .action-arrow { color: var(--border); flex-shrink: 0; }
+
+  /* ── ABOUT ── */
+  .about-inner {
+    background: var(--red-bg);
+    border: 1.5px solid var(--red-border);
+    border-radius: var(--r-lg);
+    padding: 20px;
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .stat-box {
+    background: var(--white);
+    border: 1px solid var(--red-border);
+    border-radius: var(--r);
+    padding: 14px 10px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Graduate', serif;
+    font-size: 24px;
+    color: var(--red);
+    line-height: 1;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .stat-lbl {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 500;
+    line-height: 1.3;
+    display: block;
+  }
+
+  .about-text {
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+
+  /* ── LOCATION ── */
+  .loc-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+  }
+
+  .map-block {
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px) 0 0 / 30px 30px,
+      linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px) 0 0 / 30px 30px,
+      #ede9e2;
+  }
+
+  .map-pin-wrap {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .map-pin-svg { filter: drop-shadow(0 3px 8px rgba(139,0,0,0.4)); }
+
+  .map-label {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-pill);
+    padding: 3px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  .loc-body { padding: 18px 18px 16px; }
+
+  .loc-name {
+    font-family: 'Special Elite', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 3px;
+    letter-spacing: 0.01em;
+  }
+
+  .loc-addr {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+
+  .hours-table { border-top: 1px solid var(--border); }
+
+  .hours-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+
+  .hours-row.today .h-day { font-weight: 700; color: var(--ink); }
+  .hours-row.today .h-time { font-weight: 700; color: var(--red); }
+
+  .h-day { color: var(--muted); }
+  .h-time { font-weight: 600; color: var(--ink-2); }
+  .h-closed { color: #c0c0c0; font-style: italic; }
+
+  .hours-note {
+    margin-top: 12px;
+    padding: 10px 12px;
+    background: #fefce8;
+    border: 1px solid #fde68a;
+    border-radius: var(--r);
+    font-size: 13px;
+    color: #78350f;
+    line-height: 1.5;
+  }
+
+  .hours-note a {
+    color: #92400e;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .btn-directions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: var(--touch);
+    margin-top: 14px;
+    background: var(--red);
+    color: var(--white);
+    border: none;
+    border-radius: var(--r);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .btn-directions:active { background: var(--red-mid); }
+
+  /* ── CONTACT (no footer dupe) ── */
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    height: var(--touch);
+    padding: 0 16px;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .contact-item:active { border-color: var(--red); background: var(--red-bg); }
+
+  .c-ico {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .c-label { font-size: 15px; font-weight: 600; color: var(--ink); flex: 1; }
+  .c-meta { font-size: 12px; color: var(--muted); }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--red);
+    padding: 28px 20px 24px;
+  }
+
+  .footer-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .footer-logo-mark {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid rgba(255,255,255,0.3);
+    flex-shrink: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-logo-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .footer-name {
+    font-family: 'Graduate', serif;
+    font-size: 15px;
+    color: var(--white);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+  }
+
+  .footer-city {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 3px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV — logo only, no icons -->
+<nav class="top-nav" role="banner">
+  <div class="nav-logo">
+    <div class="logo-mark" aria-label="After School Special TCG logo">
+      <img
+        src="https://i.postimg.cc/q7bTNXh1/blob.png"
+        alt="After School Special TCG"
+      >
+    </div>
+    <div class="logo-text">
+      <span class="logo-primary">After School Special</span>
+      <span class="logo-secondary">TCG · Holmen, WI</span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-desc">
+  <div class="hero-status" role="status">
+    <span class="pulse-dot" aria-hidden="true"></span>
+    Open today · 12:30 – 8:00 PM
+  </div>
+
+  <!-- Wordmark image replaces the h1 text -->
+  <img
+    src="https://salmon-michelle-69.tiiny.site"
+    alt="After School Special TCG"
+    class="hero-wordmark"
+  >
+
+  <p class="hero-sub" id="hero-desc">Buy, sell, and trade Magic: The Gathering, Lorcana, Flesh and Blood, and more — from collectors who've been doing this for 30 years.</p>
+  <div class="hero-btns">
+    <a href="#shop" class="btn-white">
+      Browse shop
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a href="#trade" class="btn-ghost">Trade / Sell</a>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<div class="info-strip" role="complementary" aria-label="Quick store info">
+  <div class="info-cell">
+    <div class="open-badge">
+      <span class="pulse-dot" aria-hidden="true"></span>
+      Open now
+    </div>
+  </div>
+  <div class="info-cell">
+    <strong>Holmen, WI</strong>
+    Pizza Corral bldg
+  </div>
+  <div class="info-cell">
+    <strong>Est. 2022</strong>
+    30 yrs collecting
+  </div>
+</div>
+
+<!-- GAMES WE CARRY -->
+<section class="section" id="shop" aria-labelledby="games-title">
+  <div class="section-hdr">
+    <h2 class="section-title" id="games-title">Games we carry</h2>
+    <a href="#" class="link-sm">
+      All
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+  <div class="games-grid" role="list">
+
+    <a href="#" class="game-tile" role="listitem" aria-label="Magic: The Gathering — Singles and Sealed">
+      <!-- MTG logo via Wizards CDN -->
+      <img class="game-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Magic_the_Gathering_2017.svg/500px-Magic_the_Gathering_2017.svg.png"
+        alt="Magic: The Gathering"
+        onerror="this.outerHTML='<span style=\'font-family:Special Elite,serif;font-size:13px;color:#111;text-align:center;\'>Magic: The Gathering</span>'"
+      >
+      <div class="game-sub">Singles · Sealed</div>
+    </a>
+
+    <a href="#" class="game-tile" role="listitem" aria-label="Disney Lorcana — Singles and Sealed">
+      <img class="game-logo" src="https://upload.wikimedia.org/wikipedia/en/0/08/Disney_Lorcana_Logo.png"
+        alt="Disney Lorcana"
+        onerror="this.outerHTML='<span style=\'font-family:Special Elite,serif;font-size:13px;color:#111;text-align:center;\'>Disney Lorcana</span>'"
+      >
+      <div class="game-sub">Singles · Sealed</div>
+    </a>
+
+    <a href="#" class="game-tile" role="listitem" aria-label="Flesh and Blood — Singles">
+      <img class="game-logo" src="https://upload.wikimedia.org/wikipedia/en/e/ed/Flesh_and_Blood_TCG_Logo.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled"
+        alt="Flesh and Blood"
+        onerror="this.outerHTML='<span style=\'font-family:Special Elite,serif;font-size:13px;color:#111;text-align:center;\'>Flesh &amp; Blood</span>'"
+      >
+      <div class="game-sub">Singles</div>
+    </a>
+
+    <a href="#" class="game-tile" role="listitem" aria-label="Star Wars Unlimited — Sealed">
+      <img class="game-logo" src="https://upload.wikimedia.org/wikipedia/en/d/d2/Star_Wars_Unlimited_logo.png"
+        alt="Star Wars: Unlimited"
+        onerror="this.outerHTML='<span style=\'font-family:Special Elite,serif;font-size:13px;color:#111;text-align:center;\'>Star Wars Unlimited</span>'"
+      >
+      <div class="game-sub">Sealed</div>
+    </a>
+
+    <a href="#" class="game-tile" role="listitem" aria-label="Sorcery: Contested Realm — Singles">
+      <img class="game-logo" src="data:image/jpeg;base64,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"
+        alt="Sorcery: Contested Realm"
+        onerror="this.outerHTML='<span style=\'font-family:Special Elite,serif;font-size:13px;color:#111;text-align:center;\'>Sorcery</span>'"
+      >
+      <div class="game-sub">Singles</div>
+    </a>
+
+    <a href="#" class="game-tile" role="listitem" aria-label="Browse all games">
+      <span style="font-family:'Special Elite',serif;font-size:15px;color:var(--red);text-align:center;">+ More</span>
+      <div class="game-sub">Browse all →</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- SHOP ONLINE / TCGPLAYER -->
+<section class="section" style="padding-top:0;border-top:none;" aria-label="Shop online via TCGplayer">
+  <a href="https://www.tcgplayer.com/search/all/product?q=after+school+special" class="shop-link-card" target="_blank" rel="noopener">
+    <div class="tcg-logo-wrap" aria-hidden="true">
+      <!-- TCGplayer logo -->
+      <img
+        src="https://tcgplayer-cdn.tcgplayer.com/static/images/logo_white.svg"
+        alt="TCGplayer"
+        onerror="this.outerHTML='<span style=\'color:#fff;font-weight:700;font-size:12px;\'>TCGplayer</span>'"
+      >
+    </div>
+    <div class="shop-link-text">
+      <div class="shop-link-eyebrow">Shop online via</div>
+      <div class="shop-link-title">TCGplayer Store</div>
+      <div class="shop-link-desc">Singles, sealed product & more</div>
+    </div>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+  </a>
+</section>
+
+<!-- BUY SELL TRADE -->
+<section class="section" id="trade" aria-labelledby="bst-title">
+  <h2 class="section-title" id="bst-title" style="margin-bottom:18px;">Buy · Sell · Trade</h2>
+  <div class="action-list">
+    <a href="https://www.tcgplayer.com/search/all/product?q=after+school+special" class="action-row" target="_blank" rel="noopener">
+      <div class="action-ico" style="background:#fff5f5;" aria-hidden="true"></div>
+      <div class="action-body">
+        <div class="action-title">Buy cards</div>
+        <div class="action-desc">In-store or browse TCGplayer online</div>
+      </div>
+      <svg class="action-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a href="#contact" class="action-row">
+      <div class="action-ico" style="background:#f0fdf4;" aria-hidden="true"></div>
+      <div class="action-body">
+        <div class="action-title">Sell your collection</div>
+        <div class="action-desc">Cash or store credit — we buy singles & collections</div>
+      </div>
+      <svg class="action-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a href="#contact" class="action-row">
+      <div class="action-ico" style="background:#f5f3ff;" aria-hidden="true"></div>
+      <div class="action-body">
+        <div class="action-title">Trade in-store</div>
+        <div class="action-desc">Bring your binder — 30 years of collector knowledge</div>
+      </div>
+      <svg class="action-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" aria-labelledby="about-title">
+  <h2 class="section-title" id="about-title" style="margin-bottom:18px;">Our story</h2>
+  <div class="about-inner">
+    <div class="stats-row" role="list">
+      <div class="stat-box" role="listitem">
+        <span class="stat-num">30</span>
+        <span class="stat-lbl">Years collecting</span>
+      </div>
+      <div class="stat-box" role="listitem">
+        <span class="stat-num">'22</span>
+        <span class="stat-lbl">Store opened</span>
+      </div>
+      <div class="stat-box" role="listitem">
+        <span class="stat-num">#1</span>
+        <span class="stat-lbl">In Holmen</span>
+      </div>
+    </div>
+    <p class="about-text">At After School Special TCG, we've been collecting rare and unique cards for almost 30 years — it started at the local corner shop, and now it's our dream to build that same experience right here in Holmen. We're the first dedicated TCG store in the area, built for the next generation of players.</p>
+  </div>
+</section>
+
+<!-- LOCATION & HOURS -->
+<section class="section" id="location" aria-labelledby="loc-title">
+  <h2 class="section-title" id="loc-title" style="margin-bottom:18px;">Find us</h2>
+  <div class="loc-card">
+    <div class="map-block" role="img" aria-label="Map showing store location in Holmen, WI">
+      <div class="map-pin-wrap">
+        <svg class="map-pin-svg" width="36" height="44" viewBox="0 0 36 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M18 0C8.06 0 0 8.06 0 18c0 13.5 18 26 18 26S36 31.5 36 18C36 8.06 27.94 0 18 0z" fill="#8b0000"/>
+          <circle cx="18" cy="18" r="8" fill="white"/>
+        </svg>
+        <span class="map-label">1513 Holmen Dr S</span>
+      </div>
+    </div>
+    <div class="loc-body">
+      <div class="loc-name">After School Special TCG</div>
+      <div class="loc-addr">1513 Holmen Drive South, Holmen, WI<br>South end of the Pizza Corral building</div>
+
+      <div class="hours-table" role="table" aria-label="Store hours">
+        <div class="hours-row today">
+          <span class="h-day">Today (Mon)</span>
+          <span class="h-time">12:30 – 8:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="h-day">Tue – Fri</span>
+          <span class="h-time">12:30 – 8:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="h-day">Saturday</span>
+          <span class="h-time">12:00 – 8:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="h-day">Sunday</span>
+          <span class="h-closed">Closed</span>
+        </div>
+      </div>
+
+      <div class="hours-note" role="note">
+        ⚠️ Hours may change for events and holidays. Check our <a href="https://www.facebook.com/AfterSchoolSpecialWisconsin" target="_blank" rel="noopener">Facebook page</a> for the current schedule before visiting.
+      </div>
+
+      <a href="https://maps.google.com/?q=1513+Holmen+Drive+South,+Holmen,+WI" class="btn-directions" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+        Get directions
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GET IN TOUCH — single occurrence of socials -->
+<section class="section" id="contact" aria-labelledby="contact-title">
+  <h2 class="section-title" id="contact-title" style="margin-bottom:18px;">Get in touch</h2>
+  <div class="contact-list">
+    <a href="https://www.facebook.com/AfterSchoolSpecialWisconsin" class="contact-item" target="_blank" rel="noopener">
+      <div class="c-ico" style="background:#e7f0ff;" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877f2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </div>
+      <div>
+        <div class="c-label">Facebook</div>
+        <div class="c-meta">Events, hours & updates</div>
+      </div>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" style="margin-left:auto;flex-shrink:0" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@AfterSchoolSpecialTCG" class="contact-item" target="_blank" rel="noopener">
+      <div class="c-ico" style="background:#fff0f0;" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#ff0000"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+      </div>
+      <div>
+        <div class="c-label">YouTube</div>
+        <div class="c-meta">Videos & content</div>
+      </div>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2" stroke-linecap="round" style="margin-left:auto;flex-shrink:0" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+    <a href="mailto:info@afterschoolspecialwi.com" class="contact-item">
+      <div class="c-ico" style="background:#f0f9ff;" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0369a1" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div>
+        <div class="c-label">Email us</div>
+        <div class="c-meta">Questions & inquiries</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER — no social buttons, just logo + links -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-logo-mark" aria-hidden="true">
+      <img src="https://img1.wsimg.com/isteam/ip/2eadb15b-0eca-4436-8348-eb536f84e38e/facebook_after%20school%20special.jpg/:/rs=w:140,h:140,cg:true,m/cr=w:140,h:140/qt=q:95" alt="">
+    </div>
+    <div>
+      <div class="footer-name">After School Special TCG</div>
+      <div class="footer-city">Holmen, Wisconsin · Est. 2022</div>
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms & Conditions</a>
+    <a href="https://www.tcgplayer.com/search/all/product?q=after+school+special" target="_blank" rel="noopener">TCGplayer Store</a>
+  </div>
+  <div class="footer-copy">© 2026 After School Special TCG · All rights reserved.</div>
+</footer>
+
+</body>
+</html>

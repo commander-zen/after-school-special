@@ -160,14 +160,56 @@
     50% { opacity: 0.4; }
   }
 
-  /* Hero wordmark image replacing the h1 text */
-  .hero-wordmark {
-    display: block;
+  .fb-page-wrap {
+    position: relative;
     width: 100%;
-    height: auto;
+    height: 280px;
     margin-bottom: 28px;
-    margin-inline: auto;
-    filter: none;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .fb-page-wrap iframe {
+    position: relative;
+    z-index: 1;
+    display: block;
+    border-radius: 10px;
+  }
+
+  .fb-fallback {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    text-align: center;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 10px;
+  }
+
+  .fb-fallback-name {
+    font-family: 'Graduate', serif;
+    font-size: 17px;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .fb-fallback-note {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+  }
+
+  .fb-fallback a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   .hero-sub {
@@ -785,22 +827,34 @@
       <span class="logo-secondary">TCG · Holmen, WI</span>
     </div>
   </div>
-  <div class="hero-status nav-hours" role="status">
-    <span class="pulse-dot" aria-hidden="true"></span>
-    Open · 12:30 – 8PM
+  <div class="hero-status nav-hours" id="store-hours-pill" role="status">
+    <span class="pulse-dot" id="store-status-dot" aria-hidden="true"></span>
+    <span id="store-status-label">Open · 12:30 – 8PM</span>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" aria-labelledby="hero-desc">
 
-  <!-- Wordmark image replaces the h1 text -->
-  <img
-    src="blob.png"
-    alt="After School Special TCG"
-    class="hero-wordmark"
-    onerror="console.error('blob failed to load:', this.src)"
-  >
+  <div class="fb-page-wrap">
+    <div class="fb-fallback" aria-hidden="true">
+      <div class="fb-fallback-name">After School Special TCG</div>
+      <div class="fb-fallback-note">
+        Follow us on Facebook for the latest posts.<br>
+        <a href="https://www.facebook.com/AfterSchoolSpecialWisconsin" target="_blank" rel="noopener">facebook.com/AfterSchoolSpecialWisconsin</a>
+      </div>
+    </div>
+    <iframe
+      src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FAfterSchoolSpecialWisconsin&tabs=timeline&width=380&height=280&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
+      width="380"
+      height="280"
+      style="border:none;overflow:hidden;border-radius:10px;"
+      scrolling="no"
+      frameborder="0"
+      allowfullscreen="true"
+      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+    ></iframe>
+  </div>
 
   <p class="hero-sub" id="hero-desc">Buy, sell, and trade Magic: The Gathering, Lorcana, Flesh and Blood, and more — from collectors who've been doing this for 30 years.</p>
   <div class="hero-btns">
@@ -1072,5 +1126,51 @@
   <div class="footer-copy">© 2026 After School Special TCG · All rights reserved.</div>
 </footer>
 
+<script>
+  (function () {
+    var hours = {
+      0: null,                        // Sunday: closed
+      1: { open: [12, 30], close: [20, 0] },
+      2: { open: [12, 30], close: [20, 0] },
+      3: { open: [12, 30], close: [20, 0] },
+      4: { open: [12, 30], close: [20, 0] },
+      5: { open: [12, 30], close: [20, 0] },
+      6: { open: [12, 0],  close: [20, 0] }, // Saturday
+    };
+    var closeLabels = { 4: '4PM', 8: '8PM', 20: '8PM' };
+
+    function getNow() {
+      return new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' }));
+    }
+
+    function update() {
+      var now   = getNow();
+      var day   = now.getDay();
+      var mins  = now.getHours() * 60 + now.getMinutes();
+      var dot   = document.getElementById('store-status-dot');
+      var label = document.getElementById('store-status-label');
+      var today = hours[day];
+
+      if (today) {
+        var openMins  = today.open[0]  * 60 + today.open[1];
+        var closeMins = today.close[0] * 60 + today.close[1];
+        if (mins >= openMins && mins < closeMins) {
+          dot.style.background = '#4ade80';
+          dot.style.animation  = 'blink 2.2s ease-in-out infinite';
+          label.textContent    = 'Open · Closes 8PM';
+          return;
+        }
+      }
+
+      dot.style.background = '#888';
+      dot.style.animation  = 'none';
+      label.textContent    = 'Closed';
+    }
+
+    update();
+    // refresh every minute so the pill flips at opening/closing time without a reload
+    setInterval(update, 60000);
+  })();
+</script>
 </body>
 </html>

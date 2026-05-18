@@ -15,8 +15,8 @@
     --white: #ffffff;
     --off-white: #faf9f8;
     --ink: #111111;
-    --ink-2: #2d2d2d;
-    --muted: #6e6e6e;
+    --ink-2: #1a1a1a;
+    --muted: #484848;
     --border: #e4e4e4;
     --surface: #f6f6f6;
     --touch: 52px;
@@ -50,6 +50,7 @@
     background: var(--red);
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0 18px;
   }
 
@@ -138,6 +139,13 @@
     letter-spacing: 0.01em;
   }
 
+  .nav-hours {
+    margin-bottom: 0;
+    font-size: 11px;
+    padding: 4px 10px 4px 8px;
+    flex-shrink: 0;
+  }
+
   .pulse-dot {
     width: 7px;
     height: 7px;
@@ -159,7 +167,7 @@
     height: auto;
     margin-bottom: 28px;
     margin-inline: auto;
-    filter: drop-shadow(0 2px 12px rgba(0,0,0,0.3));
+    filter: none;
   }
 
   .hero-sub {
@@ -281,8 +289,8 @@
   @media (prefers-color-scheme: dark) {
     :root {
       --ink: #f0f0f0;
-      --ink-2: #d0d0d0;
-      --muted: #999;
+      --ink-2: #e0e0e0;
+      --muted: #c0c0c0;
       --border: #2e2e2e;
       --surface: #1a1a1a;
       --off-white: #161616;
@@ -296,13 +304,13 @@
     .action-title { color: #f0f0f0; }
     .c-label { color: #f0f0f0; }
     .shop-link-title { color: #f0f0f0; }
-    .game-sub { color: #999; }
-    .about-text { color: #ccc; }
-    .stat-lbl { color: #999; }
-    .h-day { color: #999; }
-    .h-time { color: #ddd; }
+    .game-sub { color: #c0c0c0; }
+    .about-text { color: #e0e0e0; }
+    .stat-lbl { color: #c0c0c0; }
+    .h-day { color: #c0c0c0; }
+    .h-time { color: #f0f0f0; }
     .hours-row.today .h-time { color: #ff6b6b; }
-    .info-cell { color: #999; }
+    .info-cell { color: #c0c0c0; }
     .info-cell strong { color: #f0f0f0; }
     .footer-copy { color: rgba(255,255,255,0.25); }
 
@@ -776,18 +784,18 @@
       <span class="logo-secondary">TCG · Holmen, WI</span>
     </div>
   </div>
+  <div class="hero-status nav-hours" role="status">
+    <span class="pulse-dot" aria-hidden="true"></span>
+    Open · 12:30 – 8PM
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" aria-labelledby="hero-desc">
-  <div class="hero-status" role="status">
-    <span class="pulse-dot" aria-hidden="true"></span>
-    Open today · 12:30 – 8:00 PM
-  </div>
 
   <!-- Wordmark image replaces the h1 text -->
   <img
-    src="https://i.postimg.cc/q7bTNXh1/blob.png"
+    src="blob.png"
     alt="After School Special TCG"
     class="hero-wordmark"
   >
